@@ -14,6 +14,7 @@ CREATE TABLE livros (
     Categpria VARCHAR(255)
 );
 
+-- Criar tabela de editoras
 CREATE TABLE Editoras (
 ID_Editoras SERIAL PRIMARY KEY,
 Nome VARCHAR(255),
@@ -25,3 +26,16 @@ ADD ID_Editora INT REFERENCES Editoras(ID_Editoras);
 ALTER TABLE livros
 DROP COLUMN Editora,
 DROP COLUMN Endereço_Editora;
+
+-- Criar tabela de categorias
+CREATE TABLE Categorias (
+ID_Categoria SERIAL PRIMARY KEY,
+Nome VARCHAR(255)
+);
+
+ALTER TABLE Livros
+ADD COLUMN ID_Categoria INT REFERENCES
+Categorias(ID_Categoria);
+
+ALTER TABLE Livros
+DROP COLUMN Categoria;
